@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        {{ nombre }}
+        <todo-item
+        v-for='item in animales'
+        v-bind:todo = 'item'
+        v-bind:key = 'item.id'
+        ></todo-item>   
+    </div>
+
+    
+    <script src="node_modules/vue/dist/vue.js"></script>
+
+    <script>
+        Vue.component('todo-item', {
+            props: ['todo'],
+            template: '<li>{{ todo.nombre }}</li>'
+        })
+        var app = new Vue({
+            el:'#app',
+            data:{
+                animales: [
+                    {id: 0, nombre: 'alberto'},
+                    {id: 1, nombre: 'hernesto'},
+                    {id: 2, nombre: 'mauricio'}
+                ],
+                nombre: 'andres'
+            },
+           
+        });
+        
+    </script>
+
+</body>
+</html>

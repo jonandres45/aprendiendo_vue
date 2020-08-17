@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .estilo{
+            background: grey;
+        }
+        .text_danger{
+            color:red;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <p class="clase_normal" v-bind:class="{estilo: isActive, text_danger: hasError}">Hola</p>
+        <p v-bind:class="clase_ejemplo">Hola 2</p>
+        <p v-bind:class="[clase_uno, clase_dos]">Hola</p>
+    </div>
+
+    
+    <script src="node_modules/vue/dist/vue.js"></script>
+
+    <script>        
+        var app = new Vue({
+            el: '#app',
+            data: {
+                isActive: true,
+                hasError:true,
+                clase_ejemplo: {
+                    active: true,
+                    'estilo': true,
+                    'text_danger': true
+                },
+                clase_uno: 'estilo',
+                clase_dos: 'text_danger'
+            },
+            
+        });
+        
+    </script>
+
+</body>
+</html>
